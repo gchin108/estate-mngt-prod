@@ -51,6 +51,10 @@ class ContentView(TimeStampedModel):
 
     @classmethod
     def record_view(cls, content_object, user: User, viewer_ip: str) -> None:
+        """
+        Records a view of the specified content object by the user from the given IP address.
+        If the view already exists, it does not create a new entry.
+        """
         content_type = ContentType.objects.get_for_model(content_object)
         try:
             view, created = cls.objects.get_or_create(

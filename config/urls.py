@@ -8,7 +8,7 @@ from rest_framework import permissions
 
 schema_view = get_schema_view(
     openapi.Info(
-        title="Alpha Apartments API",
+        title="Gchin Apartments API",
         default_version="v1",
         description="An Apartment Management API for Real Estate",
         contact=openapi.Contact(email="api.imperfect@gmail.com"),
@@ -19,12 +19,13 @@ schema_view = get_schema_view(
 )
 
 urlpatterns = [
-    path("redoc/", schema_view.with_ui("redoc", cache_timeout=0), name="schema-redoc"),
+    path("redoc/", schema_view.with_ui("redoc",
+         cache_timeout=0), name="schema-redoc"),
     path(settings.ADMIN_URL, admin.site.urls),
     path("api/v1/auth/", include("djoser.urls")),
     path("api/v1/auth/", include("core_apps.users.urls")),
 ]
 
-admin.site.site_header = "Alpha Apartments Admin"
-admin.site.site_title = "Alpha Apartments Admin Portal"
-admin.site.index_title = "Welcome to Alpha Apartments Admin Portal"
+admin.site.site_header = "Gchin Apartments Admin"
+admin.site.site_title = "Gchin Apartments Admin Portal"
+admin.site.index_title = "Welcome to Gchin Apartments Admin Portal"

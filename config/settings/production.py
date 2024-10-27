@@ -19,5 +19,5 @@ ADMIN_URL = getenv("DJANGO_ADMIN_URL")
 ALLOWED_HOSTS = []
 
 ADMINS = [
-    ("Alpha Omondi Ogilo", "api.imperfect@gmail.com"),
+    ("Gchin", "gchin90@gmail.com"),
 ]
