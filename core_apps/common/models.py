@@ -50,7 +50,7 @@ class ContentView(TimeStampedModel):
         return f"{self.content_object} viewed by {self.user.get_full_name if self.user else 'Anonymous'} from IP {self.viewer_ip}"
 
     @classmethod
-    def record_view(cls, content_object, user: User, viewer_ip: str) -> None:
+    def record_view(cls, content_object, user: User, viewer_ip: str) -> None:  # type: ignore
         """
         Records a view of the specified content object by the user from the given IP address.
         If the view already exists, it does not create a new entry.

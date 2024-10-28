@@ -45,13 +45,13 @@ services:
     ports:
       - "8025:8025"
       - "1025:1025"
-    volumes:  
+    volumes:
       - estate_prod_mailpit_data:/data
     environment:
       MP_MAX_MESSAGES: 5000
       MP_DATA_FILE: /data/mailpit.db
       MP_SMTP_AUTH_ACCEPT_ANY: 1
-      MP_SMTP_AUTH_ALLOW_INSECURE: 1  
+      MP_SMTP_AUTH_ALLOW_INSECURE: 1
     networks:
       - estate_prod_nw
 
@@ -68,6 +68,8 @@ services:
     volumes:
       - ./client:/app
       - /app/node_modules
+    environment:
+      - WATCHPACK_POLLING=true
     networks:
       - estate_prod_nw
 
@@ -100,7 +102,6 @@ services:
       - "5555:5555"
     command: /start-flower
 
-  
   nginx:
     build:
       context: ./docker/local/nginx
@@ -116,7 +117,6 @@ services:
       - api
     networks:
       - estate_prod_nw
-    
 
 networks:
   estate_prod_nw:
@@ -127,5 +127,3 @@ volumes:
   estate_prod_mailpit_data: {}
   logs_store: {}
   estate_redis_prod_data: {}
-
-
