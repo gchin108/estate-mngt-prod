@@ -141,7 +141,7 @@ class CustomProviderAuthView(ProviderAuthView):
 
     def post(self, request: Request, *args, **kwargs) -> Response:
         """
-        Authenticate user with credentials.
+        Authenticate user with external oAuth.
         Set cookies with obtained access and refresh tokens.
         Return response with success message
         """

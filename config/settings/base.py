@@ -159,7 +159,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 TAGGIT_CASE_INSENSITIVE = True
 
-AUTH_USER_MODEL = "users.User"
+AUTH_USER_MODEL = "users.User"  # User model can be retrieved with get_user_model()
 
 
 if USE_TZ:
@@ -243,6 +243,7 @@ DJOSER = {
     "SOCIAL_AUTH_ALLOWED_REDIRECT_URIS": getenv("REDIRECT_URIS", "").split(","),
     "SERIALIZERS": {
         "user_create": "core_apps.users.serializers.CreateUserSerializer",
+        "current_user": "core_apps.users.serializers.CustomUserSerializer",
     },
 }
 
