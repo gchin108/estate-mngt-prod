@@ -13,6 +13,7 @@ class CreateUserSerializer(UserCreateSerializer):
         fields = ["id", "username", "first_name", "last_name", "password"]
 
 
+#  return extra fields from the Profile model
 class CustomUserSerializer(UserSerializer):
     #  UserSerializer has access to the User model, thus also provide access to the Profile model
     full_name = serializers.ReadOnlyField(source="get_full_name")

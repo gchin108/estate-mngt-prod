@@ -16,6 +16,9 @@ class UsernameValidator(validators.RegexValidator):
 
 
 class User(AbstractUser):
+    """
+    AbstractUser has properties like username, first_name, last_name, email, is_staff, is_active, date_joined etc.
+    """
     pkid = models.BigAutoField(primary_key=True, editable=False)
     id = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
     first_name = models.CharField(verbose_name=_("First Name"), max_length=60)
